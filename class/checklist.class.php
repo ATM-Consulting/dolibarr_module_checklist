@@ -20,8 +20,6 @@ class TChecklist extends TObjetStd {
 	function iDoIt($k, $value=true) {
 		global $user;
 		
-		$k = (int)$k;
-		
 		$date=date('Y-m-d');
 		
 		if(empty($this->TAnswer[$k]))$this->TAnswer[$k]=array();
@@ -71,12 +69,21 @@ class TChecklist extends TObjetStd {
 			
 			$TQuestion = explode("\n", $s);
 			
-			foreach( $TQuestion as $q ){
+			foreach( $TQuestion as $k=>$q ){
 				
 				$q = trim($q);
 				
 				if($q) {
-					$this->TCheck[]=array(
+					
+					$code = $k;
+					
+					$pos = strpos(substr($q,0,10),',');
+					if( $pos>0 ) {
+						$code = trim(substr($q,0,$pos));
+						$q = trim(substr($q,$pos+1));
+					}
+					
+					$this->TCheck[$code]=array(
 						'label'=>$q
 						,'answers'=>array()
 					);

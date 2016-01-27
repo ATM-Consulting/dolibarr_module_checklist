@@ -6,3 +6,4 @@ ATMAbout = Ce module a été développé par <a href="http://www.atm-consulting.
 ChecklistSetup = Configuration du module Checklist
 ChecklistAbout = A propos du module Checklist
 YesIDo=Je l'ai fait
+set_CHECKLIST_PROJECT=Liste d'action pour projet (code, libellé par ligne)

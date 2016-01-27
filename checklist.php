@@ -4,6 +4,8 @@
 	
 	dol_include_once('/checklist/class/checklist.class.php');
 	
+	$langs->load('checklist@checklist');
+	
 	$type_object = GETPOST('type_object');
 	$fk_object = GETPOST('fk_object');
 	
@@ -99,7 +101,7 @@ function _fiche(&$c) {
 		}
 		
 		if($user->rights->checklist->write) {
-			echo '<td><a href="?action=yesido&k='.$k.'&type_object='.$c->type_object.'&fk_object='.$c->fk_object.'">'.img_picto('YesIDo','tick.png').'</a></td>';	
+			echo '<td><a href="?action=yesido&k='.$k.'&type_object='.$c->type_object.'&fk_object='.$c->fk_object.'">'.img_picto($langs->trans('YesIDo'),'history.png').'</a></td>';	
 		}
 		
 		echo '</tr>';
